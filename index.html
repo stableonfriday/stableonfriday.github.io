@@ -20,6 +20,8 @@
       --border-radius: 12px;
       --spacing-unit: 1.5rem;
       --section-spacing: 3.5rem;
+      --shadow: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.12);
     }
 
     html {
@@ -57,13 +59,17 @@
       left: 0;
     }
 
+    .header {
+      margin-bottom: var(--section-spacing);
+    }
+
     .profile-img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--card-bg);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
       margin-bottom: var(--spacing-unit);
       transition: transform 0.3s ease;
     }
@@ -149,13 +155,14 @@
       background: var(--card-bg);
       padding: 1.5rem;
       border-radius: var(--border-radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
     .service-icon {
@@ -198,6 +205,82 @@
       color: white;
     }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-image-container {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-thumbnail {
+      transform: scale(1.05);
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .project-card-content h3 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .project-card-content p {
+      margin: 0 0 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project-link:hover {
+      color: #3a6ea5;
+      text-decoration: underline;
+    }
+
+    .project-link i {
+      transition: transform 0.2s ease;
+    }
+
+    .project-link:hover i {
+      transform: translateX(3px);
+    }
+
     .education-grid, .experience-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -209,13 +292,14 @@
     .education-card, .job-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .education-card:hover, .job-card:hover {
       transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
     .education-info, .job-info {
@@ -256,20 +340,18 @@
       margin-top: 0.5rem;
     }
 
-    .education-link {
-      display: inline-block;
-      margin-top: 0.75rem;
+    .contact p {
+      margin: 0.75rem 0;
+    }
+
+    .contact a {
       color: var(--accent-color);
       font-weight: 500;
       text-decoration: none;
     }
 
-    .education-link:hover {
+    .contact a:hover {
       text-decoration: underline;
-    }
-
-    .contact p {
-      margin: 0.75rem 0;
     }
 
     footer {
@@ -311,26 +393,33 @@
         padding: 0.5rem 1rem;
       }
       
-      .education-grid, .experience-grid {
+      .education-grid, 
+      .experience-grid,
+      .projects-grid {
         grid-template-columns: 1fr;
+      }
+
+      .project-image-container {
+        height: 180px;
       }
     }
   </style>
 </head>
 <body>
-
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <img src="https://avatars.githubusercontent.com/u/216163413?s=400&u=a3635ad882ea0561c8bdca9594cef6fc7de58411&v=4" alt="Joe-Manuel Schlüter" class="profile-img" />
-  <h3>@stableonfriday</h3>
-  <h1>Joe-Manuel Schlüter</h1>
-  <p>I help businesses improve their websites and reach more customers through SEO.</p>
+  <header class="header">
+    <img src="https://avatars.githubusercontent.com/u/216163413?s=400&u=a3635ad882ea0561c8bdca9594cef6fc7de58411&v=4" alt="Joe-Manuel Schlüter" class="profile-img" />
+    <h3>@stableonfriday</h3>
+    <h1>Joe-Manuel Schlüter</h1>
+    <p>I help businesses improve their websites and reach more customers through SEO.</p>
 
-  <div class="socials">
-    <a href="https://www.instagram.com/stableonfriday/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/stableonfriday" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-    <a href="https://github.com/stableonfriday" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-  </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/stableonfriday/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/stableonfriday" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/stableonfriday" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
 
   <section class="services">
     <h2>How I Help</h2>
@@ -371,6 +460,27 @@
         <li><i class="fas fa-universal-access"></i> Accessibility</li>
         <li><i class="fas fa-bullseye"></i> Business Growth</li>
       </ul>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>My Work</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+               alt="Web and SEO Projects" 
+               class="project-thumbnail">
+        </div>
+        <div class="project-card-content">
+          <h3>Web & SEO Projects</h3>
+          <p>Case studies of websites I've optimized for performance and search visibility.</p>
+          <a href="projects/projects.html" class="project-link">
+            View Projects
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
