@@ -198,7 +198,7 @@
       color: white;
     }
 
-    .certificates-grid, .education-grid, .experience-grid, .volunteer-grid {
+    .education-grid, .experience-grid, .volunteer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
@@ -206,7 +206,7 @@
       max-width: 600px;
     }
 
-    .certificate-card, .education-card, .job-card, .volunteer-card {
+    .education-card, .job-card, .volunteer-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -214,45 +214,39 @@
       transition: transform 0.3s ease;
     }
 
-    .certificate-card:hover, .education-card:hover, .job-card:hover, .volunteer-card:hover {
+    .education-card:hover, .job-card:hover, .volunteer-card:hover {
       transform: translateY(-5px);
     }
 
-    .certificate-img {
-      width: 100%;
-      height: auto;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .certificate-info, .education-info, .job-info, .volunteer-info {
+    .education-info, .job-info, .volunteer-info {
       padding: 1.25rem;
       text-align: center;
     }
 
-    .job-icon, .education-icon, .volunteer-icon {
+    .education-icon, .job-icon, .volunteer-icon {
       font-size: 2rem;
       color: var(--accent-color);
       margin-bottom: 0.5rem;
     }
 
-    .job-title, .education-title, .volunteer-title {
+    .education-title, .job-title, .volunteer-title {
       font-weight: 600;
       margin: 0.5rem 0;
     }
 
-    .job-company, .education-institution, .volunteer-organization {
+    .education-institution, .job-company, .volunteer-organization {
       font-weight: 500;
       color: var(--text-light);
       margin-bottom: 0.5rem;
     }
 
-    .job-duration, .education-duration, .volunteer-duration {
+    .education-duration, .job-duration, .volunteer-duration {
       color: var(--text-light);
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
     }
 
-    .job-type, .education-type, .volunteer-type {
+    .education-type, .job-type, .volunteer-type {
       display: inline-block;
       background: var(--accent-color);
       color: white;
@@ -262,7 +256,7 @@
       margin-top: 0.5rem;
     }
 
-    .certificate-link, .volunteer-link {
+    .education-link, .volunteer-link {
       display: inline-block;
       margin-top: 0.75rem;
       color: var(--accent-color);
@@ -270,7 +264,7 @@
       text-decoration: none;
     }
 
-    .certificate-link:hover, .volunteer-link:hover {
+    .education-link:hover, .volunteer-link:hover {
       text-decoration: underline;
     }
 
@@ -317,7 +311,7 @@
         padding: 0.5rem 1rem;
       }
       
-      .certificates-grid, .education-grid, .experience-grid, .volunteer-grid {
+      .education-grid, .experience-grid, .volunteer-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -380,36 +374,18 @@
     </div>
   </section>
 
-  <section class="certificates">
-    <h2>My Certifications</h2>
-    <div class="certificates-grid">
-      <div class="certificate-card">
-        <img src="https://certificates.cs50.io/51cb1d4e-4394-4033-b821-6da9e1273146.png?size=letter" alt="CS50x Certificate" class="certificate-img">
-        <div class="certificate-info">
-          <h3>Harvard University</h3>
-          <p>Introduction to Computer Science</p>
-          <a href="https://cs50.harvard.edu/certificates/51cb1d4e-4394-4033-b821-6da9e1273146" class="certificate-link" target="_blank">
-            Verify Certificate →
-          </a>
-        </div>
-      </div>
-      
-      <div class="certificate-card">
-        <img src="https://certificates.cs50.io/6d1745d8-ca3d-48c8-8562-c7d8c315fc15.png?size=letter" alt="CS50T Certificate" class="certificate-img">
-        <div class="certificate-info">
-          <h3>Harvard University</h3>
-          <p>Understanding Technology</p>
-          <a href="https://cs50.harvard.edu/certificates/6d1745d8-ca3d-48c8-8562-c7d8c315fc15" class="certificate-link" target="_blank">
-            Verify Certificate →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="education">
     <h2>Education</h2>
     <div class="education-grid">
+      <div class="education-card">
+        <div class="education-info">
+          <div class="education-icon"><i class="fas fa-university"></i></div>
+          <h3 class="education-title">Computer Science</h3>
+          <p class="education-institution">Harvard University</p>
+          <p class="education-duration">Nov 2022 - Jan 2023</p>
+          <span class="education-type">Online Program</span>
+        </div>
+      </div>
       <div class="education-card">
         <div class="education-info">
           <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
