@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joe-Manuel Schlüter – Volunteer Web & SEO Specialist</title>
-  <meta name="google-site-verification" content="cC49HKfx25ZPa-lRLCBlo1SANIADXmLCGiUurTHbS44" />
   <meta name="description" content="I volunteer my time to help nonprofits and good causes by optimizing their websites and improving their SEO." />
   <meta name="keywords" content="SEO, Website Optimization, Volunteering, Nonprofit Tech Help, WordPress, Web Performance, Accessibility" />
   <meta name="author" content="Joe-Manuel Schlüter" />
+  <meta name="google-site-verification" content="cC49HKfx25ZPa-lRLCBlo1SANIADXmLCGiUurTHbS44" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/216163413?s=48&v=4" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
@@ -21,7 +22,11 @@
       --section-spacing: 3.5rem;
     }
 
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -29,9 +34,6 @@
       color: var(--text-color);
       line-height: 1.6;
       min-height: 100vh;
-    }
-
-    body {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -40,6 +42,19 @@
       margin: 0 auto;
       text-align: center;
       box-sizing: border-box;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 0;
     }
 
     .profile-img {
@@ -136,12 +151,22 @@
       border-radius: var(--border-radius);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
     }
 
     .service-icon {
       font-size: 2rem;
       color: var(--accent-color);
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
     }
 
     .skills-list ul {
@@ -173,6 +198,82 @@
       color: white;
     }
 
+    .certificates-grid, .education-grid, .experience-grid, .volunteer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .certificate-card, .education-card, .job-card, .volunteer-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .certificate-card:hover, .education-card:hover, .job-card:hover, .volunteer-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .certificate-img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .certificate-info, .education-info, .job-info, .volunteer-info {
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .job-icon, .education-icon, .volunteer-icon {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .job-title, .education-title, .volunteer-title {
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+
+    .job-company, .education-institution, .volunteer-organization {
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .job-duration, .education-duration, .volunteer-duration {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .job-type, .education-type, .volunteer-type {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .certificate-link, .volunteer-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .certificate-link:hover, .volunteer-link:hover {
+      text-decoration: underline;
+    }
+
     .contact p {
       margin: 0.75rem 0;
     }
@@ -202,16 +303,29 @@
         --spacing-unit: 1.25rem;
         --section-spacing: 3rem;
       }
+      
       h1 {
         font-size: 2rem;
       }
+      
       h2 {
         font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      
+      .skills-list li {
+        padding: 0.5rem 1rem;
+      }
+      
+      .certificates-grid, .education-grid, .experience-grid, .volunteer-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <img src="https://avatars.githubusercontent.com/u/216163413?s=400&u=a3635ad882ea0561c8bdca9594cef6fc7de58411&v=4" alt="Joe-Manuel Schlüter" class="profile-img" />
   <h3>@stableonfriday</h3>
@@ -266,11 +380,166 @@
     </div>
   </section>
 
+  <section class="certificates">
+    <h2>My Certifications</h2>
+    <div class="certificates-grid">
+      <div class="certificate-card">
+        <img src="https://certificates.cs50.io/51cb1d4e-4394-4033-b821-6da9e1273146.png?size=letter" alt="CS50x Certificate" class="certificate-img">
+        <div class="certificate-info">
+          <h3>Harvard University</h3>
+          <p>Introduction to Computer Science</p>
+          <a href="https://cs50.harvard.edu/certificates/51cb1d4e-4394-4033-b821-6da9e1273146" class="certificate-link" target="_blank">
+            Verify Certificate →
+          </a>
+        </div>
+      </div>
+      
+      <div class="certificate-card">
+        <img src="https://certificates.cs50.io/6d1745d8-ca3d-48c8-8562-c7d8c315fc15.png?size=letter" alt="CS50T Certificate" class="certificate-img">
+        <div class="certificate-info">
+          <h3>Harvard University</h3>
+          <p>Understanding Technology</p>
+          <a href="https://cs50.harvard.edu/certificates/6d1745d8-ca3d-48c8-8562-c7d8c315fc15" class="certificate-link" target="_blank">
+            Verify Certificate →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="education">
+    <h2>Education</h2>
+    <div class="education-grid">
+      <div class="education-card">
+        <div class="education-info">
+          <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3 class="education-title">Electrical Engineering</h3>
+          <p class="education-institution">Berufsbildende Schulen Rinteln</p>
+          <p class="education-duration">Aug 2014 - Mar 2017</p>
+          <span class="education-type">Vocational Education</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="volunteer">
+    <h2>Volunteer Experience</h2>
+    <div class="volunteer-grid">
+      <div class="volunteer-card">
+        <div class="volunteer-info">
+          <div class="volunteer-icon"><i class="fas fa-hands-helping"></i></div>
+          <h3 class="volunteer-title">Web & SEO Specialist</h3>
+          <p class="volunteer-organization">Catchafire, Inc.</p>
+          <p class="volunteer-duration">2025 - Present</p>
+          <span class="volunteer-type">Volunteer</span>
+          <p style="margin-top: 0.75rem;">Connecting with nonprofits through Catchafire to provide technical assistance with websites and SEO.</p>
+          <a href="https://www.catchafire.org/" class="volunteer-link" target="_blank">
+            Learn About Catchafire →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="main">
+    <h2>Professional Experience</h2>
+    <div class="experience-grid">
+      <!-- Rehabilitation -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3 class="job-title">Health Recovery</h3>
+          <p class="job-company">Focus on Mental Wellbeing</p>
+          <p class="job-duration">2020 - Present</p>
+          <span class="job-type">Personal Development</span>
+          <p style="margin-top: 0.75rem;">Dedicated time to managing health while developing technical skills through self-study and volunteer work.</p>
+        </div>
+      </div>
+
+      <!-- Deutsche Post & DHL -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-truck"></i></div>
+          <h3 class="job-title">Mail Carrier</h3>
+          <p class="job-company">Deutsche Post & DHL</p>
+          <p class="job-duration">Dec 2019 - Jan 2020</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- Möbel Heinrich -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-couch"></i></div>
+          <h3 class="job-title">Furniture Mover</h3>
+          <p class="job-company">Möbel Heinrich GmbH</p>
+          <p class="job-duration">Jan 2019 - Feb 2019</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- ZAG -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-briefcase"></i></div>
+          <h3 class="job-title">Temporary Worker</h3>
+          <p class="job-company">ZAG Zeitarbeits-Gesellschaft</p>
+          <p class="job-duration">Nov 2018</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- Liebeck -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-bolt"></i></div>
+          <h3 class="job-title">Electrician</h3>
+          <p class="job-company">Liebeck Blitzschutzbau</p>
+          <p class="job-duration">Jun 2018</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- Senioren- und Pflegezentrum -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-home"></i></div>
+          <h3 class="job-title">Office Clerk</h3>
+          <p class="job-company">Senioren- und Pflegezentrum</p>
+          <p class="job-duration">Aug 2017 - Sep 2017</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- Unique Personalservice -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-user-tie"></i></div>
+          <h3 class="job-title">Temporary Worker</h3>
+          <p class="job-company">Unique Personalservice</p>
+          <p class="job-duration">Apr 2017 - Jul 2017</p>
+          <span class="job-type">Employee</span>
+        </div>
+      </div>
+
+      <!-- Elektro-Konerding -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-icon"><i class="fas fa-bolt"></i></div>
+          <h3 class="job-title">Electrician Trainee</h3>
+          <p class="job-company">Elektro-Konerding GmbH</p>
+          <p class="job-duration">Aug 2014 - Mar 2017</p>
+          <span class="job-type">Apprenticeship</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="contact">
-    <h2>Let’s Connect</h2>
+    <h2>Let's Connect</h2>
     <p><a href="mailto:jmschl96@gmail.com">jmschl96@gmail.com</a></p>
     <p>Hannover, Germany</p>
-    <p>Working on a good cause? I’d love to help.</p>
+    <p>Working on a good cause? I'd love to help.</p>
   </section>
 
   <footer>
